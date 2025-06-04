@@ -11,8 +11,19 @@
     "lint": "eslint src --ext .jsx,.js,.tsx,.ts  --no-error-on-unmatched-pattern --fix && stylelint --fix src/{,*/}*.{scss,css} --allow-empty-input"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.2.5",
+    "@reduxjs/toolkit": "^2.8.2",
+    "@types/leaflet": "^1.9.18",
+    "axios": "^1.9.0",
+    "leaflet": "^1.9.4",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.57.0",
+    "react-leaflet": "^5.0.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.6.2",
+    "redux-saga": "^1.3.0",
+    "zod": "^3.25.51"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
