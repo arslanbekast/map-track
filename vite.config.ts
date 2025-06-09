@@ -7,4 +7,10 @@ export default defineConfig({
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
   },
+  server: {
+    proxy: {
+      '/api': 'https://gpstest.autotracker.site',
+      '/session': 'https://login.pve-srv1.autotracker.site/api',
+    },
+  },
 })
