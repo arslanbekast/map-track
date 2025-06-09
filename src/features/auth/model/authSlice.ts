@@ -40,6 +40,7 @@ export const authSlice = createSlice({
   reducers: {
     logout: state => {
       state.token = null
+      state.isAuthenticated = false
       localStorage.removeItem('token')
     },
   },
@@ -50,6 +51,7 @@ export const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action: PayloadAction<string>) => {
         state.token = action.payload
+        state.isAuthenticated = true
         state.loading = false
       })
       .addCase(login.rejected, state => {
