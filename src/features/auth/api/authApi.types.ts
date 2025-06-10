@@ -20,20 +20,20 @@ export interface User {
   zoom: number
   twelvehourformat: boolean
   attributes: Attributes
-  coordinateformat: any
+  coordinateformat: null
   disabled: boolean
-  expirationtime: any
+  expirationtime: null
   devicelimit: number
   devicereadonly: boolean
-  phone: any
+  phone: null
   limitcommands: boolean
   disablereports: boolean
   fixedemail: boolean
-  totpkey: any
+  totpkey: null
   temporary: boolean
   timezone: string
   access: string[]
-  editgroup: any
+  editgroup: null
   language: string
 }
 
