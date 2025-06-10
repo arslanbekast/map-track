@@ -9,7 +9,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': 'https://gpstest.autotracker.site',
+      '/api': 'https://report.dev.autotracker.site',
       '/session': 'https://login.pve-srv1.autotracker.site/api',
     },
   },
