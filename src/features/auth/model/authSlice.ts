@@ -11,7 +11,7 @@ export const login = createAppAsyncThunk<string, object>(
     try {
       const response = await authApi.login(authData)
       if (response.status === 200) {
-        localStorage.setItem('token', response.data.token.token) // Сохраняем токен
+        localStorage.setItem('token', response.data.token.token)
         return response.data.token.token
       } else {
         dispatch(setAppError(response.statusText))
@@ -37,13 +37,7 @@ export const authSlice = createSlice({
     selectAuthLoading: state => state.loading,
     selectIsAuthenticated: state => state.isAuthenticated,
   },
-  reducers: {
-    logout: state => {
-      state.token = null
-      state.isAuthenticated = false
-      localStorage.removeItem('token')
-    },
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(login.pending, state => {
@@ -61,7 +55,6 @@ export const authSlice = createSlice({
 })
 
 export const { selectAuthLoading, selectIsAuthenticated } = authSlice.selectors
-export const { logout } = authSlice.actions
 export const authReducer = authSlice.reducer
 
 type InitialState = {
