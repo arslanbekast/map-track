@@ -21,15 +21,8 @@ export const useMonitoring = () => {
     dispatch(fetchPosition())
     dispatch(startMonitoringPolling())
     return () => {
-      dispatch(stopMonitoringPolling()) // Остановка цикла
+      dispatch(stopMonitoringPolling())
     }
-    // dispatch(fetchPositionRequest())
-    // dispatch(fetchPosition())
-    // const interval = setInterval(() => {
-    //   dispatch(fetchPosition())
-    // }, 30000)
-    //
-    // return () => clearInterval(interval)
   }, [dispatch])
 
   return { positions, loading }
