@@ -13,7 +13,7 @@ export const Monitoring = () => {
 
   if (loading) return <CircularProgress />
 
-  if (positions.length === 0) return <ErrorState />
+  if (!positions.length) return <ErrorState />
 
   return (
     <MapContainer
