@@ -16,8 +16,8 @@ export const stopMonitoringPolling = createAction('monitoring/stopPolling')
 function* fetchPositionWorker(): SagaIterator {
   try {
     const response: AxiosResponse<MonitoringResponse[]> = yield call(monitoringApi.getPositions)
-    const positions = positionsTransform(response.data)
     if (response.status === 200) {
+      const positions = positionsTransform(response.data)
       yield put(fetchPositionSuccess(positions as Position[]))
     } else {
       yield put(setAppError(response.statusText))
