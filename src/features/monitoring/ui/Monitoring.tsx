@@ -6,11 +6,14 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { selectPositions } from '@/features/monitoring/model/monitoringSlice'
 import { CustomMarker } from '@/features/monitoring/ui/CustomMarker/CustomMarker'
+import { ErrorState } from '@/features/monitoring/ui/ErrorState/ErrorState'
 
 export const Monitoring = () => {
   const { positions, loading } = useMonitoring()
 
   if (loading) return <CircularProgress />
+
+  if (positions.length === 0) return <ErrorState />
 
   return (
     <MapContainer
