@@ -3,6 +3,7 @@ import { authApi } from '@/features/auth/api/authApi'
 import { createAppAsyncThunk } from '@/common/utils/createAppAsyncThunk'
 import { handleServerNetworkError } from '@/common/utils/handleServerNetworkError'
 import { setAppError } from '@/app/appSlice'
+import { TOKEN } from '@/common/constants/constants'
 
 // Асинхронный action для авторизации
 export const login = createAppAsyncThunk<string, object>(
@@ -11,7 +12,7 @@ export const login = createAppAsyncThunk<string, object>(
     try {
       const response = await authApi.login(authData)
       if (response.status === 200) {
-        localStorage.setItem('token', response.data.token.token)
+        localStorage.setItem(TOKEN, response.data.token.token)
         return response.data.token.token
       } else {
         dispatch(setAppError(response.statusText))
@@ -25,8 +26,8 @@ export const login = createAppAsyncThunk<string, object>(
 )
 
 const initialState: InitialState = {
-  token: localStorage.getItem('token') || null,
-  isAuthenticated: !!localStorage.getItem('token'),
+  token: localStorage.getItem(TOKEN) || null,
+  isAuthenticated: !!localStorage.getItem(TOKEN),
   loading: false,
 }
 
